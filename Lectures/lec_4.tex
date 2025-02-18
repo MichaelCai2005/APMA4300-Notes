@@ -1,0 +1,71 @@
+\lecture{4}{6 Feb 2025}{10:10}
+\section{Linear Iterative Schemes for Linear Systems}
+\begin{definition}
+    Define the error at step \(k\)  to be 
+    \[
+        e^k = x^k -x \implies e^{k+1} = Be^k
+    \]
+    \[
+        \implies e^k = B^k e^0
+    \]
+    We see if \(B\) is greater than \(1\) , we are amplifying the noise of the answer. Thus, we want to use some method 
+    to get the size of the matrix \(I-A\) to be less than \(1\) 
+\end{definition}
+
+\subsection{Jacobi Iteration}
+For the Jacobi Iteration we acn write that 
+\[
+    A= P-N
+\]
+\[
+    Ax=y \implies Px = Nx +y 
+\]
+\begin{remark}
+    We have rewritten the equation in this form but is not in the form \(x= Bx +y\). We can write instead 
+    \[
+        X = P^{-1} N x + P^{-1} y
+    \]
+    We can now perform the iteration here which makes the calculations much easier. 
+\end{remark}
+Recall that the Jacobi is going to consist of 
+\[
+    P= D_A, N = L_A + U_A
+\]
+\begin{remark}
+    Selecting \(P = D_A\) is useful because the inverse of \(P \) is simply 
+    \[
+        \begin{pmatrix}
+            \frac{1}{p_1} &  &   \\
+             &  \frac{1}{p_2}&   \\
+             &  &   \frac{1}{p_n}\\
+        \end{pmatrix}
+    \]
+    Thus given \(x_0\),
+    \[
+        x^{k+1} = D^{-1}_A (L_A + U_A) x^k + D^{-1}_A y, k \geq 0   
+    \]
+    Note that if we have the diagonal to be 0 for one part, the method is not possible. However, it is nice 
+    to see when the diagonal is very large. 
+\end{remark}
+In component form, we can write this as 
+\[
+    x_1^{k+1} = \frac{y_1 - \sum_{j \neq  1 }a_j x_j^K }{a_{11} }
+\]
+\[
+    \vdots  
+\]
+\[
+    x_i^{k+1} = \frac{y_i - \sum_{i \neq j} a_{ij} x_j^k }{a_{ii} } 
+\]
+\[
+    \vdots
+\]
+\[
+    x_n^{k+1} = \frac{y_n - \sum_{j \neq  n} a_{nj} x_j^k }{a_{nn} }
+\]
+\paragraph{Stopping Criteria}
+We have to designate a stopping criteria for linear iterations. ONe of the methods is using a maximum amount of iterations 
+and the other method is using the relative size of the residual. This is defined as the size of \(y - A x^k\) over the initial as 
+\[
+    \frac{\lVert y- Ax^k \rVert _{l2} }{\lVert y-Ax^0 \rVert _{l2}}
+\] 

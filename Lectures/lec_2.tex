@@ -1,0 +1,152 @@
+\lecture{2}{Jan 28 10:10}{}
+
+\begin{remark}
+    Gaussian Elimination:
+
+    Suppose we had an \(n \times n \) system with n unknowns and n equations denoted as 
+    \[
+        Ax = y, A \in \mathbb{R^{n \times n}}
+    \]
+
+    \begin{eg}
+        Given an example of the equation 
+        \[
+             y = a_0 + a_1 x + \dots + a_{m-1} x^{m-1} 
+        \]
+        How do we figure out the coefficients. Now suppose that we are given a set of points,
+        it is quite easy to solve a matrix for the given system of equations 
+        \[
+            a_0 + a_1 x + \dots  + a_{n-1} x^{n-1}  = y_1 
+        \]
+        \[
+            \dots 
+        \]
+        \[
+            a_0 + a_1 x_n + \dots  = y_m
+        \]
+        This results in a matrix where we can solve for the values of the coefficients now. 
+        \[
+            \begin{pmatrix}
+                1 &  x_1 &  x_1^{m-1}  \\
+                \dots  &  &   \\
+                1 &  x_m &   x_m^{m-1} \\
+            \end{pmatrix} 
+            \begin{pmatrix}
+                 a_0 \\
+                  \dots   \\
+                  a_m \\
+            \end{pmatrix}
+            = 
+            \begin{pmatrix}
+                 y_0 \\
+                  \dots \\
+                  y_m \\
+            \end{pmatrix}
+        \]
+        In practice, we could measure data points which leads to a situation where there are more equations or \(x\) values
+        than coefficients which is defined as a "overdetermined matrix". On the other hand, we can also have 
+        an undertermined problem. 
+    \end{eg}
+
+    \begin{eg}
+        Suppose we have another example with a system of equations with \(y= a_0 
+        + a_1 \sin  x + a_2 \sin  2x \dots a_n \sin  x\). 
+        If we continue this this is also a linear system of equations where the matrix of the equations will be 
+        \[
+            \begin{pmatrix}
+                1 &  \sin  x_1 &  \sin  (m-1) x_1 \\
+                \dots  &  &   \\
+                1 &  \sin  x_m &   \sin  (m-1) x_m\\
+            \end{pmatrix} 
+            \begin{pmatrix}
+                 a_0 \\
+                  \dots   \\
+                  a_m \\
+            \end{pmatrix}
+            = 
+            \begin{pmatrix}
+                 y_0 \\
+                  \dots \\
+                  y_m \\
+            \end{pmatrix}
+        \]
+        One useful example is a gaussian mixture model where you can suerimpose a number of gaussian models to get
+        the value of y. Thus, solving \(Ax = y\) gives many possible applications.
+    \end{eg}
+
+\end{remark}
+Elementary Row Operations:  
+
+\begin{definition}
+    Elementary row operations can be done with multiplication. Scaling is done with the following matrix 
+    \[
+        S_i (p) = \begin{pmatrix}
+            1 &  &   \\
+             & p &   \\
+             &  &  1  \\
+        \end{pmatrix}
+    \]
+    which gives us a scaling factor on a row of the matrix. We simply see that the inverse of the matrix would be simply be 
+    \( \frac{1}{p}\) for \(S_i(p)^{-1} \) 
+\end{definition}
+
+\begin{definition}
+    Interchange: interchanging row \( i \) and row \( j \) of \(\vec{A} \) gives us 
+    \[
+        E_{ij} A = \begin{pmatrix}
+            1 &  &  &  &   \\
+             &  0& 1 &  &   \\
+             &  1& 0 &  &   \\
+             &  &  &  1&   \\
+             &  &  &  & 1  \\
+        \end{pmatrix} A
+    \]
+    This showcases a exchange of rows \( i\)  and \(j \). Note that the inverse of such a matrix is just itself.
+\end{definition}
+
+\begin{definition}
+    Replacement is also a method too. (finish later)
+\end{definition}
+
+\begin{remark}
+    Gaussian Elimination:
+
+    We can start with an easy example 
+    \[
+        A = \begin{pmatrix}
+            2 &  1&  1&   0\\
+             4&  3&  3&   1\\
+             8&  7&  9&   5\\
+             \dots &  \dots &  \dots &\dots    \\
+        \end{pmatrix}
+    \]
+    We can then apply a matrix \(L_1\) which is our linear operator we use to transform
+    our matrix using gaussian elimination.
+    
+    We can apply these operations which results in 
+    \[
+        L_{3} L_2 L_1 Ax = L_3 L_2 L_1 y
+    \]
+    which will give us a upper triangular matrix. We can then solve and use backwards substitution toget our answer from 
+    the upper triangular matrix. 
+
+    Let us denote this as 
+    \[
+         U = L_3 L_2 L_1 A
+    \]
+    Thus, we can write everything as 
+    \[
+        U x = L^{-1} y \implies LUx = y 
+    \]
+    where U is always an upper triangular matrix and the L is always a lower 
+    triangular matrix. This only works with elimination methods and not row swaps or replacements. 
+    This can be easily solvable by having 
+    \[
+        LU x = y \implies Lz = y
+    \]
+    solve for z, do a backward substitution for \( U \) and we can easily get the coefficients for 
+    \( x\) 
+\end{remark}
+
+
+

@@ -1,0 +1,54 @@
+\chapter{Linear Algebra Overview}
+\lecture{1}{Jan 23 10:10}{}
+
+\begin{remark}
+  \[
+    Av = \lambda v
+  \]
+  When \(\{ v_i \}_{i=1}^{n} \) is linearly independent, then we wil  have 
+  that
+  \[
+    Av_i = \lambda_i v_i
+  \]    
+  We can then write \(A\) as a product of \text{two matrices such that we have}
+  \[
+    AQ = Q \alpha \\
+    A = Q \alpha Q^{-1}
+  \] 
+\end{remark}
+
+\begin{remark}
+  Suppose that some of the values do not contribute much in
+  \[
+    A = Q \alpha  Q^{-1}
+  \]
+  Then we can throw away some nonzero elements given that they are small. 
+  Thus, we can create a approximation of the matrix which was a (256 x 256) matrix. 
+  We have converted it to a \(n \times 2 , 2\times 2 , 2\times n\). 
+
+  \begin{eg}
+    We can have an image that is 256 x 256, we can compress it without losing too much information. 
+    However, there is never any free lunch. Any two dimensional object, 3d, etc. can 
+    be done. Thus, we can generalize it further in the course\dots
+
+    With \(\lambda \) being very small, it is negligible and can be omitted.  
+  \end{eg}
+\end{remark}
+
+We would like to know how much error can be omitted. 
+
+\begin{definition}
+  \(l^{2}  \) norm is going to be denoted as \(||\mathbf{x}||\) which is a 
+  negative number given by 
+  \[
+    \sqrt{\sum_{i=1}^{n}} x_i ^{2}  
+  \] 
+\end{definition}
+
+\begin{theorem}
+  The \(l_2\) norm satisfies the following properties:
+  \begin{list}{\labelitemi}{\leftmargin=1em}
+    \item \(||x||_{l_2}= 0 \iff x = 0 \)
+    \item \(||\alpha x|| = |\alpha|||x||_{l_2}\)
+  \end{list}
+\end{theorem}
