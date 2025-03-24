@@ -1,4 +1,0 @@
-\contentsline {chapter}{\numberline {1}Linear Algebra Overview}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Linear Iterative Schemes for Linear Systems}{6}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Jacobi Iteration}{6}{subsection.1.1.1}%
-\contentsline {paragraph}{Stopping Criteria}{7}{section*.6}%
