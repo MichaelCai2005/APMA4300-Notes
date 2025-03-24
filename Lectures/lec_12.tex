@@ -1,0 +1,110 @@
+\lecture{12}{6 Mar 10:10}{}
+\chapter{Interpolation}
+
+Consider the concept of interpolation where we are using extrapolation and generalization. Suppose we had a neural network where we have fitted it with data point \(D(t)\). We are asking how general the neural network can be 
+such that we can fit our data.  
+
+\begin{definition}
+    Interpolant: Given a discrete set of values \(y_i\) at locations \(x_i \)  an interpolant is a piecewise continuous function \(f(x)\)  that 
+    passes through the data such that 
+    \[
+        f(x_i) = y_i \quad 1 \leq i \leq  n
+    \]
+\end{definition}
+After we fit the function we want to evaluate the new data points. Notice that there is a factor that we can't control for such that 
+we don't know the form of \(D(t)\) where \(D(t) = P_n t^n + P_{n-1}t^{n-1} \dots + P_1  \)  
+
+\begin{eg}
+Suppose we had data points that looked like a linear line. Then we can guess the form
+\[
+    D(t) = a+ bt
+\]
+Given our plots we have a linear set of equations
+\[
+    a+ bt_1 = D_1 
+\]
+\[
+    a+ bt_2 = D_2
+\]
+\[
+    \dots 
+\]
+\end{eg}
+\begin{eg}
+If we want a quadratic interpolation we need three data points
+
+Let \(P_2(x) = p_0 + p_1 x + p_2 x^{2} \), then we have the requirements 
+\[
+    \sum_{i=1}^3 p_0 +p_1 x_i + p_2 x_{i}^{2} = y_i  
+\]
+which can be put into matrix form and solved which will give a form in terms of fractions. 
+\end{eg}
+In general, given \(n+1\) data points we can generate an n-th order polynomial of the form 
+\[
+    \begin{pmatrix}
+        1 &  x_0& \dots   &   x_0^n\\
+         1&  x_1&  \dots &  x_1^n \\
+         &  &  &   \\
+         1&  &\dots   & x_n^n   \\
+    \end{pmatrix} 
+    \begin{pmatrix}
+         p_0 \\
+         \vdots \\
+          \\
+         p_n \\
+    \end{pmatrix}
+    = \begin{pmatrix}
+         y_1 \\
+          \vdots \\
+          \\
+          y_n \\
+    \end{pmatrix}
+\] 
+\[
+    Ap = y
+\]
+\begin{theorem}
+    Weierstrass Approximation Theorem:
+    Let \(f \in \mathcal{C} ([a,b])\) be given. For \(\forall \epsilon  > 0, \exists\) a polynomial \(P(x)\)  such that 
+    \[
+        \vert P(x) - f(x)  \vert \leq \epsilon , \quad \forall x \in [a,b]
+    \]
+\end{theorem}
+
+\section{Lagrange Interpolation}
+\begin{theorem}
+    Suppose we had \(n+1\) distinct points. THen there exists a unique polynomial of degreen \(n\)  such that 
+    \(P(x)\)  pass through these points. We must have 
+    \[
+        P(x) = \sum_{k=0}^n f(x_k) L_{n,k} (x), \quad L_{n,k}(x) = \prod_{i=0, i\neq k}^n \frac{x-x_i}{x_k - x_i} 
+    \]
+    where \(L\)  are the Lagrange interpolating polynomials at node \(x_k \) 
+\end{theorem}
+
+\begin{remark}
+    Recall the coefficients of a nice structure in terms of fractions. This structure can go to arbitrary orders which lead to the lagrange interpolation.
+    Thus we get the following form nice form where
+    \[
+        P(x) = \sum_{k=0, x_n \neq x_k}^n f(x_k)  \frac{x-x_0}{x_k - x_0}\frac{x-x_1}{x_k - x_1} \dots \frac{x - x_n}{x_k - x_n} 
+    \]
+    This term is given as \(L_{n,k} (x)\). Thus we get the form
+    \[
+        P(x) = y_0 L_{n,0} (x) + y_1 L_{n,1} (x) + \dots + y_n L_{n,n}(x) 
+    \]
+\end{remark}
+Observe that 
+\[
+    L_{n,k} (x_j) = \delta_{kj} = \begin{dcases}
+        1, k = j ;\\
+        0, k \neq j  ;\\
+    \end{dcases}
+\]
+
+\begin{theorem}
+    Error of Lagrange Interpolation:
+    If \(f \in \mathcal{C}^{n+1} (pa,b)  \), then we have that 
+    \[
+        f(x) = \sum_{k=0}^n f(x_k) L_{n,x} (x) + \frac{f^{(n+1)} (\eta)}{(n+1)!} \prod_{i=0}^n (x-x_i)
+    \] 
+    where the second term is defined to be the error. We can see a taylor expansion where this is the residual terms.
+\end{theorem}

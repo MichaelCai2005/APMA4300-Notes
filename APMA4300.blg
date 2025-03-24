@@ -1,0 +1,9 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[1] Config.pm:311> INFO - Logfile is 'APMA4300.blg'
+[391] biber-MSWIN64:340> INFO - === 
+[586] Biber.pm:420> INFO - Reading 'APMA4300.bcf'
+[808] Biber.pm:994> INFO - Found 0 citekeys in bib section 0
+[856] bbl.pm:676> INFO - Writing 'APMA4300.bbl' with encoding 'UTF-8'
+[857] bbl.pm:779> INFO - Output to APMA4300.bbl
+[857] Biber.pm:131> WARN - The file 'APMA4300.bcf' does not contain any citations!
+[857] Biber.pm:133> INFO - WARNINGS: 1

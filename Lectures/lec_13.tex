@@ -1,0 +1,14 @@
+\lecture{13}{11 Mar 2025}{10:10}
+\section{Lagrange Interpolation Proof}
+\begin{proof}
+    The Lagnrange polynomial \(L_{nk} (x) \) is given as 
+    \[
+        L_{nk}(x) = 
+        \prod_{i=0, i\neq  k}^n \frac{x-x_i}{x_k - x_i} 
+    \]
+    If \(L_{nk} (x_j) = \delta_{kj} \) then if \(k=j\) the whole expression cancels to be one. And \(0\) if otherwise. 
+    Let us now show that 
+    \[
+        P(x_j) = \sum_{k=0}^{n} f(x_k)L_{nk} (x_j) = f(x_j), \quad 0 \leq  j \leq n
+    \]
+\end{proof}
