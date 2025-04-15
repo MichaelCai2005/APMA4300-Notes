@@ -7,3 +7,19 @@
 \contentsline {section}{\numberline {2.2}Lagrange Interpolation Proof}{8}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Hermite Interpolation}{9}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Spline Interpolation}{10}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Numerical Differentiation}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Definitions of Differentiation}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}General Approach \(n+1\) Point Formula}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Three and Five Point Formula}{15}{subsection.3.2.1}%
+\contentsline {chapter}{\numberline {4}Numerical Differentiation}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Definitions of Differentiation}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}General Approach \(n+1\) Point Formula}{16}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Three and Five Point Formula}{17}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Richardson's Extrapolation}{17}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Gaussian Quadrature}{18}{section.4.4}%
+\contentsline {chapter}{\numberline {5}ODE and Boundary Problems}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Initial Value Problems}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Forward Euler}{19}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Backward Euler Method}{20}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Elementary Error Analysis}{20}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Higher Order Methods}{21}{section.5.5}%
